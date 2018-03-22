@@ -1,3 +1,5 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -10,8 +12,18 @@ import static java.util.Calendar.YEAR;
  */
 public class SevenDays {
     public static void main(String[] args) {
-        Calendar instance = Calendar.getInstance();
+        seachTime(7);
+    }
 
+    private static void seachTime(int recent) {
 
+        Calendar c = Calendar.getInstance();
+        DateFormat dateTimeInstance = DateFormat.getDateTimeInstance();
+
+        for (int i = 0; i < recent ; i++) {
+            String format = dateTimeInstance.format(c.getTime());
+            System.out.println(format);
+            c.add(Calendar.DAY_OF_MONTH,-1);
+        }
     }
 }
